@@ -47,19 +47,19 @@ input {
 .myButton Button:hover {
   background-color: rgb(134, 37, 37);
 }
-.gif:hover {
+/* .gif:hover {
   transform: scale(1.5);
   cursor: pointer;
-}
-.gif:hover .showDetails {
+} */
+/* .gif:hover .showDetails {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-}
+} */
 .showDetails {
-  position: absolute;
-  display: none;
+  /* position: absolute; */
+  /* display: none; */
   width: 98%;
   /* height: 13%; */
   bottom: 5px;
@@ -70,4 +70,9 @@ p {
   padding-left: 5px;
   padding-right: 5px;
   font-size: 12px;
+}
+.names {
+  color: red;
+  font-weight: bold;
+  margin-right: 3px;
 }

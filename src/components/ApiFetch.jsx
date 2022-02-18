@@ -8,11 +8,15 @@ function ApiFetch() {
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [reverse, setReverse] = useState(false);
+  const [expand, setExpend] = useState(false);
 
   const onClickHandle = () => {
     setReverse(!reverse);
   };
 
+  const expendIt = () => {
+    setExpend(!expand);
+  };
   useEffect(() => {
     const fetchData = async () => {
       setIsError(false);
@@ -91,33 +95,19 @@ function ApiFetch() {
           .map((val, idx) => {
             return (
               <div key={idx} className="gif">
-                <img src={val.images.fixed_height.url} />
-                <div className="showDetails">
-                  <p style={{ color: "white" }}>
-                    <span
-                      style={{
-                        color: "red",
-                        fontWeight: "bold",
-                        marginRight: "3px",
-                      }}
-                    >
-                      Name:
-                    </span>
-                    {val?.username}
-                  </p>
-                  <p style={{ color: "white" }}>
-                    <span
-                      style={{
-                        color: "red",
-                        fontWeight: "bold",
-                        marginRight: "3px",
-                      }}
-                    >
-                      Rating:
-                    </span>
-                    {val?.rating}
-                  </p>
-                </div>
+                <img src={val.images.fixed_height.url} onClick={expendIt} />
+                {expand ? (
+                  <div className="showDetails">
+                    <p style={{ color: "white" }}>
+                      <span className="names">Name:</span>
+                      {val?.username}
+                    </p>
+                    <p style={{ color: "white" }}>
+                      <span className="names">Rating:</span>
+                      {val?.rating}
+                    </p>
+                  </div>
+                ) : null}
               </div>
             );
           })}

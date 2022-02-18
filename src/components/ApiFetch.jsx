@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./gifs.css";
 import Button from "../../node_modules/@material-ui/core/Button/Button";
+// import Loader from "../components/Loader/loader";
 
 function ApiFetch() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [reverse, setReverse] = useState(false);
   const [expand, setExpend] = useState(false);
+  var favArr = [];
 
   const onClickHandle = () => {
     setReverse(!reverse);
@@ -17,18 +18,20 @@ function ApiFetch() {
   const expendIt = () => {
     setExpend(!expand);
   };
+
+  const addFavGif = (val) => {
+    favArr.unshift(val);
+    console.log(favArr);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      setIsError(false);
-      setLoading(true);
-
       try {
         const result = await fetch(
           `https://api.giphy.com/v1/gifs/trending?api_key=xQ1dCumvjQcPPojDWO2OLO99a3HoG2bw`
         );
         const actualData = await result.json();
         setData(actualData.data);
-        console.log(actualData.data[0].username);
       } catch (error) {
         console.log("error", error);
       }
@@ -36,6 +39,7 @@ function ApiFetch() {
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     setData(data.reverse());
   }, [reverse]);
@@ -43,15 +47,7 @@ function ApiFetch() {
   return (
     <>
       <div className="searchbar">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "left",
-            alignItems: "center",
-            width: "30%",
-            borderBottom: "1px solid rgb(134, 31, 31)",
-          }}
-        >
+        <div className="inputs">
           &#128270;
           <input
             type="search"
@@ -95,7 +91,11 @@ function ApiFetch() {
           .map((val, idx) => {
             return (
               <div key={idx} className="gif">
-                <img src={val.images.fixed_height.url} onClick={expendIt} />
+                {loading ? (
+                  <h1> Loading .... </h1>
+                ) : (
+                  <img src={val.images.fixed_height.url} onClick={expendIt} />
+                )}
                 {expand ? (
                   <div className="showDetails">
                     <p style={{ color: "white" }}>
@@ -106,6 +106,15 @@ function ApiFetch() {
                       <span className="names">Rating:</span>
                       {val?.rating}
                     </p>
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        addFavGif(val);
+                      }}
+                      className="favButton"
+                    >
+                      Fav
+                    </Button>
                   </div>
                 ) : null}
               </div>

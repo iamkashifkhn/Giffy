@@ -35,8 +35,6 @@ input {
   display: flex;
   justify-content: space-between;
 }
-.favorite {
-}
 .myButton Button {
   background-color: rgb(197, 57, 57);
   color: white;
@@ -75,4 +73,24 @@ p {
   color: red;
   font-weight: bold;
   margin-right: 3px;
+}
+.gif Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(197, 57, 57);
+  color: white;
+  width: 100px;
+  height: 30px;
+  font-weight: 600;
+}
+.gif Button:hover {
+  background-color: rgb(134, 37, 37);
+}
+.inputs {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 30%;
+  border-bottom: 1px solid rgb(134, 31, 31);
 }

@@ -45,24 +45,10 @@ input {
 .myButton Button:hover {
   background-color: rgb(134, 37, 37);
 }
-/* .gif:hover {
-  transform: scale(1.5);
-  cursor: pointer;
-} */
-/* .gif:hover .showDetails {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
-} */
+
 .showDetails {
-  /* position: absolute; */
-  /* display: none; */
   width: 98%;
-  /* height: 13%; */
   bottom: 5px;
-  /* padding: 8px; */
-  /* margin: 10px; */
 }
 p {
   padding-left: 5px;
@@ -75,14 +61,11 @@ p {
   margin-right: 3px;
 }
 .gif Button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(197, 57, 57);
   color: white;
-  width: 100px;
   height: 30px;
-  font-weight: 600;
+  padding: 5px 35px;
+  font-weight: 500;
 }
 .gif Button:hover {
   background-color: rgb(134, 37, 37);
@@ -93,4 +76,20 @@ p {
   align-items: center;
   width: 30%;
   border-bottom: 1px solid rgb(134, 31, 31);
+}
+img {
+  width: 300px;
+  height: 200px;
+}
+.CentreButton {
+  display: flex;
+  justify-content: center;
+}
+p {
+  color: white;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

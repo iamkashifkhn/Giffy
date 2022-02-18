@@ -1,0 +1,73 @@
+body {
+  background-color: black;
+}
+.search {
+  width: 90%;
+  padding: 3px 3px 3px 8px;
+  color: white;
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}
+input {
+  display: flex;
+  justify-content: center;
+}
+.searchbar {
+  /* margin-top: 2%; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.gifs {
+  margin: 40px auto;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gif {
+  padding: 2px 2px;
+  position: static;
+}
+.myButton {
+  display: flex;
+  justify-content: space-between;
+}
+.favorite {
+}
+.myButton Button {
+  background-color: rgb(197, 57, 57);
+  color: white;
+  width: 150px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.myButton Button:hover {
+  background-color: rgb(134, 37, 37);
+}
+.gif:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+.gif:hover .showDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.showDetails {
+  position: absolute;
+  display: none;
+  width: 98%;
+  /* height: 13%; */
+  bottom: 5px;
+  /* padding: 8px; */
+  /* margin: 10px; */
+}
+p {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+}
